@@ -129,7 +129,7 @@ export default function Hero() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl pt-24 pb-48 sm:py-48 lg:pt-28 lg:pb-96">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-900 font-semibold ring-1 ring-white/10 hover:ring-black/20">
               Discover your emotional range
