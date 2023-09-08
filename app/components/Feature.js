@@ -17,7 +17,7 @@ const features = [
   {
     name: "Schrodinger's GPS.",
     description:
-      "Is your destination on the left? Right? Straight ahead? This GPS won't tell you until you've passed it.",
+      "Is your destination on the left? Right? Straight ahead? This GPS won't tell you until you've passed it. Dive deep into quantum mechanics every drive. You're both lost and found until you check!",
     icon: LockClosedIcon,
   },
   {
