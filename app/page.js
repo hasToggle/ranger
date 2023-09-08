@@ -6,8 +6,11 @@ import Stats from "./components/Stats";
 import Feature from "./components/Feature";
 import { useState } from "react";
 
+let renderCount = 0;
+
 export default function Home() {
   const [emotionalState, setEmotionalState] = useState("Optimistic");
+  const [pendingState, setPendingState] = useState();
 
   const states = [
     {
@@ -50,7 +53,9 @@ export default function Home() {
       /> */}
 
       <section className="my-8 text-center border-t-2">
-        <h2 className="text-2xl font-bold my-4 text-black">How are you feeling today?</h2>
+        <h2 className="text-2xl font-bold my-4 text-black">
+          How are you feeling today?
+        </h2>
         <div>
           {states.map((state, idx) => (
             <button
@@ -60,7 +65,14 @@ export default function Home() {
                   ? "bg-sky-600 text-white"
                   : "bg-slate-700"
               }`}
-              onClick={() => setEmotionalState(state.label)}
+              onClick={() => {
+                setPendingState(state.label);
+                setTimeout(() => {
+                  setEmotionalState(state.label);
+                  setPendingState(null);
+                  renderCount++;
+                }, 2000);
+              }}
             >
               {state.label}
             </button>
@@ -68,10 +80,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="text-center p-8">
-        <p className="text-lg text-black">
-          {states.find((s) => s.label === emotionalState)?.description}
-        </p>
+      <section className="text-center p-8 text-black">
+        <p className="pb-8">The site has been rendered {renderCount} times.</p>
+        {pendingState ? (
+          <p className="text-lg">Updating state to: {pendingState}...</p>
+        ) : (
+          <p className="text-lg">
+            {states.find((s) => s.label === emotionalState)?.description}
+          </p>
+        )}
       </section>
 
       <footer className="mt-16 text-center">
