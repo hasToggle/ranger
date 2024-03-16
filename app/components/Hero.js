@@ -1,35 +1,39 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import hasToggle from "@/public/hasToggle.png";
+import electricVehicles from "@/public/electric-suvs-ranger.png";
 
 const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Gamble 9000", href: "#gamble9000" },
+  { name: "Features", href: "#gamble9000" },
+  /* { name: "Tech Stack", href: "#techstack" }, */
+  { name: "Disclaimer", href: "#disclaimer" },
 ];
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 relative">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt=""
+            <Link href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">hasToggle</span>
+              <Image
+                className="h-14 w-auto rounded-full"
+                src={hasToggle}
+                alt="hasToggle logo"
               />
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -43,19 +47,23 @@ export default function Hero() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-white"
+                className="text-sm font-semibold leading-6 text-black"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            <Link
+              href="#gamble9000"
+              className="text-sm font-semibold leading-6 text-black"
+            >
+              Discover your emotional range{" "}
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </nav>
         <Dialog
@@ -67,14 +75,14 @@ export default function Hero() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt=""
+              <Link href="/" className="-m-1.5 p-1.5">
+                <span className="sr-only">hasToggle</span>
+                <Image
+                  className="h-10 w-auto rounded-full"
+                  src={hasToggle}
+                  alt="hasToggle logo"
                 />
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-400"
@@ -88,21 +96,22 @@ export default function Hero() {
               <div className="-my-6 divide-y divide-gray-500/25">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">
                   <a
-                    href="#"
+                    href="https://www.hastoggle.dev"
+                    target="_blank"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
-                    Log in
+                    Become a web developer
                   </a>
                 </div>
               </div>
@@ -112,9 +121,11 @@ export default function Hero() {
       </header>
 
       <div className="relative isolate overflow-hidden pt-14">
-        <img
-          src="https://images.unsplash.com/photo-1688020580707-aede06895d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3791&q=80"
-          alt=""
+        <Image
+          src={electricVehicles}
+          alt="two electric vehicles on display"
+          width="3791"
+          height={Math.floor(3791 / (16 / 9))}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div
@@ -131,9 +142,7 @@ export default function Hero() {
         </div>
         <div className="mx-auto max-w-2xl pt-24 pb-48 sm:py-48 lg:pt-28 lg:pb-96">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-900 font-semibold ring-1 ring-white/10 hover:ring-black/20">
-              Discover your emotional range
-            </div>
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-900 font-semibold ring-1 ring-white/10 hover:ring-black/20"></div>
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">
