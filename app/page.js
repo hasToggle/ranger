@@ -28,6 +28,7 @@ export default function Home() {
       </div> */}
 
       {/* story: we're introducing a brand-new car: Almost-There 500! We're still optimizing for great customer experience. */}
+      {/* Ranger - you're not going anywhere */}
       {/*  <Header
         title="Almost-There 500"
         description="For those who ponder the meaning of life in traffic. Features include a philosophical GPS voice that asks, Where are we really going?"
